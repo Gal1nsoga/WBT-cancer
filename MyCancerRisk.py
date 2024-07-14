@@ -148,18 +148,22 @@ def make_predict(input_df):
 
 # 设置一个按钮用于预测
 if st.button('点击进行预测'):
-    input_df1 = codeing_fun(input_df=input_df)
-
-    # make prediction from the input data
-    result, probability = make_predict(input_df=input_df1)
-
-    # Display results of the task
-    st.header('您的癌症风险：')
-
-    if int(result) == 1:
-        st.write("您可能属于高危人群")
-                 # probability[:, 1])
+    # 检查是否完成了所有选项
+    if input_df.isnull().values.any():
+        st.warning("您有问题未完成，请确保完成了所有选项！")
     else:
-        st.write("您可能属于低危人群，您目前发生癌症的风险约为")
-                 # probability[:, 0])
+        # 在这里执行预测相关的代码
+
+        input_df1 = codeing_fun(input_df=input_df)
+        result, probability = make_predict(input_df=input_df1)
+
+        # 显示结果
+        st.header('您的胃溃疡风险：')
+
+        if int(result) == 1:
+            st.write("您可能属于高危人群")
+            # st.write(f"概率：{probability}")
+        else:
+            st.write("您可能属于低危人群")
+            # st.write(f"概率：{1 - probability}")
 
