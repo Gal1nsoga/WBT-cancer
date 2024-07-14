@@ -4,6 +4,7 @@
 import pandas as pd
 import streamlit as st
 import joblib
+import pickle
 
 # main function
 # 设置网页名称
