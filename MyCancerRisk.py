@@ -158,7 +158,7 @@ if st.button('点击进行预测'):
         result, probability = make_predict(input_df=input_df1)
 
         # 显示结果
-        st.header('您的胃溃疡风险：')
+        st.header('您的癌症风险：')
 
         if int(result) == 1:
             st.write("您可能属于高危人群")
