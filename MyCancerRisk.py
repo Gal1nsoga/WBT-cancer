@@ -40,7 +40,7 @@ st.sidebar.info(
 
 # 填写预测变量
 # 社会人口学
-factor1 = st.radio('户口类型', ['农业户口', '非农户口', '统一居民户口', '不清楚'], index = None)
+factor1 = st.radio('Residence Type(户口类型)', ['Agricultural Type(农业户口)', 'None-Agricultural Type(非农户口)', 'Unified Residence Type(统一居民户口)', 'Unclear(不清楚)'])
 factor2 = st.radio('教育水平', ['小学及以下', '初中毕业', '高中或中专毕业', '大专毕业', '本科及以上', '不清楚'], index = None)
 factor3 = st.radio('婚姻状态', ['已婚', '未婚', '离异或丧偶', '不清楚'], index = None)
 factor4 = st.radio('性别', ['男性', '女性'], index = None)
