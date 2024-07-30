@@ -41,12 +41,12 @@ st.sidebar.info(
 # 填写预测变量
 # 社会人口学
 factor1 = st.radio('Residence Type(户口类型)', ['Agricultural Type(农业户口)', 'None-Agricultural Type(非农户口)', 'Unified Residence Type(统一居民户口)', 'Unclear(不清楚)'])
-factor2 = st.radio('教育水平', ['小学及以下', '初中毕业', '高中或中专毕业', '大专毕业', '本科及以上', '不清楚'], index = None)
-factor3 = st.radio('婚姻状态', ['已婚', '未婚', '离异或丧偶', '不清楚'], index = None)
-factor4 = st.radio('性别', ['男性', '女性'], index = None)
-factor5 = st.slider('请选择您的年龄', 45, 120)
-factor6 = st.slider('您晚上的睡眠时间', 0, 24)
-factor7 = st.radio('您每日吃几顿饭？', ['每天大于等于四顿', '每天三顿', '每天两顿', '每天一顿', '不清楚'], index = None)
+factor2 = st.radio('Education Level(教育水平)', ['Elementary school or below(小学及以下)', 'Junior high school graduate(初中毕业)', 'High school or vocational school graduate(高中或中专毕业)', 'College diploma graduate(大专毕业)', 'Bachelor's degree or above(本科及以上)', 'Not sure(不清楚)'], index = None)
+factor3 = st.radio('Marital Status(婚姻状态)', ['Married(已婚)', 'Single(未婚)', 'Divorced or widowed(离异或丧偶)', 'Not sure(不清楚)'], index = None)
+factor4 = st.radio('Gender(性别)', ['Male(男性)', 'Female(女性)'], index = None)
+factor5 = st.slider('Age(请选择您的年龄)', 45, 120)
+factor6 = st.slider('Night Sleep Druation(您晚上的睡眠时间)', 0, 24)
+factor7 = st.radio('How many meals do you eat every day？(您每日吃几顿饭？)', ['Four or more(每天大于等于四顿)', '每天三顿', '每天两顿', '每天一顿', '不清楚'], index = None)
 factor8 = st.radio('您一年内喝酒频率', ['每个月超过一次', '每月少于等于一次', '不喝', '不清楚'], index = None)
 factor9 = st.radio('您是否左胸痛？', ['是', '否', '不清楚'], index = None)
 factor10 = st.radio('您是否有高血压？', ['是', '否', '不清楚'], index = None)
