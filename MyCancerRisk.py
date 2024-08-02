@@ -112,7 +112,7 @@ def codeing_fun(input_df):
     input_df['da007_14_'] = input_df['da007_14_'].replace(['Yes (是)', 'No (否)', 'Unclear (不清楚)'], [1, 2, -1])
     input_df['da021'] = input_df['da021'].replace(['Yes (是)', 'No (否)', 'Unclear (不清楚)'], [1, 2, -1])
     input_df['da037'] = input_df['da037'].replace(['Yes (是)', 'No (否)', 'Unclear (不清楚)'], [1, 2, -1])
-    input_df['da039'] = input_df['da039'].replace(['非常好', '很好', '好', '一般', '不好', '不清楚'], [1, 2, 3, 4, 5, -1])
+    input_df['da039'] = input_df['da039'].replace(['Very Good (非常好)', 'Good (很好)', 'Fair (好)', 'Average (一般)', 'Poor (不好)', 'Not Sure (不清楚)'], [1, 2, 3, 4, 5, -1])
     input_df['da040'] = input_df['da040'].replace(['Yes (是)', 'No (否)', 'Unclear (不清楚)'], [1, 2, -1])
     input_df['da041'] = input_df['da041'].replace(['Yes (是)', 'No (否)', 'Unclear (不清楚)'], [1, 2, -1])
     input_df['da047'] = input_df['da047'].replace(['Yes (是)', 'No (否)', 'Unclear (不清楚)'], [1, 2, -1])
