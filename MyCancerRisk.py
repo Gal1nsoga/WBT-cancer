@@ -8,18 +8,14 @@ import pickle
 
 # main function
 # 设置网页名称
-st.set_page_config(page_title='癌症风险评估工具')
+st.set_page_config(page_title='MyCancerRisk\n癌症风险预测工具')
+
 
 # 设置网页标题
-st.header('中老年人癌症风险评估网页工具')
+st.header('Cancer risk assessment web tool for middle-aged and older adults\n中老年人癌症风险评估网页工具')
 
 # 设置副标题
-st.subheader('欢迎使用本工具！请您输入以下信息进行预测：')
-
-# 添加说明文本
-# 长文本会出现滑动条
-# st.text('您可使用本工具预测未来4年内发生2型糖尿病的可能性。')
-# st.text('请注意，本预测结果仅供参考，实际结果需以医生检查结果为准。')
+st.subheader('Welcome to use this tool! Please enter the following information to make a prediction:\n欢迎使用本工具！请您输入以下信息进行预测：')
 
 # 在侧边栏添加图片
 # st.sidebar.image('https://cdn.freebiesupply.com/logos/thumbs/1x/nvidia-logo.png', width=200)
@@ -28,7 +24,7 @@ st.subheader('欢迎使用本工具！请您输入以下信息进行预测：')
 
 # 在侧边栏添加说明
 st.sidebar.info(
-    '您可使用本工具预测现在癌症的可能性。请注意，本预测结果仅供参考，实际结果需以医生检查结果为准。')
+    'You can use this tool to predict the likelihood of cancer now. Please note that this forecast is for reference only and the actual results are subject to the doctor's examination results.\n您可使用本工具预测现在癌症的可能性。请注意，本预测结果仅供参考，实际结果需以医生检查结果为准。')
 
 # Function for online predictions
 # 在侧边栏输入预测因子
