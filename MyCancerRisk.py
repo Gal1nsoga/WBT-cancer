@@ -164,6 +164,31 @@ def make_predict(input_df):
 #         else:
 #             st.write("You may belong to a low-risk group.\n您可能属于低危人群")
 #             # st.write(f"概率：{1 - probability}")
+# 设置一个按钮用于预测
+if st.button('Please click the button to predict（请点击进行预测）'):
+    # 检查是否完成了所有选项
+    if input_df.isnull().values.any():
+        st.warning("You have unfinished questions, please make sure you have completed all of them！\n您有问题未完成，请确保完成了所有选项！")
+        
+        # 获取未完成的问题列名
+        unfinished_questions = list(input_df.columns[input_df.isnull().any()])
+
+        # 创建一个空元素用于跳转
+        placeholder = st.empty()
+
+        # 输出自动跳转的链接
+        placeholder.markdown(f'<a href="#{unfinished_questions[0]}">Click here to jump to the unfinished question</a>', unsafe_allow_html=True)
+    else:
+        # 在这里执行预测相关的代码
+        input_df1 = codeing_fun(input_df=input_df)
+        result, probability = make_predict(input_df=input_df1)
+        
+        # 显示结果
+        st.header('Your cancer risk level:\n您的癌症风险等级：')
+        if int(result) == 1:
+            st.write("You may belong to a high-risk group.\n您可能属于高危人群")
+        else:
+            st.write("You may belong to a low-risk group.\n您可能属于低危人群")
 
 
 
