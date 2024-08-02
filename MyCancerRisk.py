@@ -145,7 +145,7 @@ def make_predict(input_df):
 
 
 # 设置一个按钮用于预测
-if st.button('Please click the button to predict.\n点击进行预测'):
+if st.button('Please click the button to predict.<br>点击进行预测', unsafe_allow_html=True)):
     # 检查是否完成了所有选项
     if input_df.isnull().values.any():
         st.warning("You have unfinished questions, please make sure you have completed all of them！\n您有问题未完成，请确保完成了所有选项！")
