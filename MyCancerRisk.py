@@ -95,7 +95,7 @@ def codeing_fun(input_df):
     input_df['be001'] = input_df['be001'].replace(['Married (已婚)', 'Single (未婚)', 'Divorced or widowed (离异或丧偶)', 'Unclear (不清楚)'], [1, 2, 3, -1])
     input_df['rgender'] = input_df['rgender'].replace(['Male (男性)', 'Female (女性)'], [1, 2])
     input_df['da058'] = input_df['da058'].replace(['Four or more meals per day (每天大于等于四顿)', 'Three meals per day (每天三顿)', 'Two meals per day (每天两顿)', 'One meal per day (每天一顿)', 'Not Sure (不清楚)'], [1, 3, 4, 5, -1])
-    input_df['da067'] = input_df['da067'].replace(['每个月超过一次', '每月少于等于一次', '不喝', '不清楚'], [1, 2, 3, -1])
+    input_df['da067'] = input_df['da067'].replace(['More than once a month (每个月超过一次)', 'Once or less a month (每月少于等于一次)', 'Do not drink (不喝)', 'Unclear (不清楚)'], [1, 2, 3, -1])
     input_df['da003'] = input_df['da003'].replace(['Yes (是)', 'No (否)', 'Unclear (不清楚)'], [1, 2, -1])
     input_df['da007_1_'] = input_df['da007_1_'].replace(['Yes (是)', 'No(否)', 'Unclear (不清楚)'], [1, 2, -1])
     input_df['da007_2_'] = input_df['da007_2_'].replace(['Yes (是)', 'No(否)', 'Unclear (不清楚)'], [1, 2, -1])
