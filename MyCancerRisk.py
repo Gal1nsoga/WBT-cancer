@@ -166,6 +166,7 @@ def make_predict(input_df):
 #             # st.write(f"概率：{1 - probability}")
 # 存储未完成的问题的索引
 
+# 设置一个按钮用于预测
 if st.button('Please click the button to predict（请点击进行预测）'):
     # 检查是否完成了所有选项
     if input_df.isnull().values.any():
@@ -174,23 +175,24 @@ if st.button('Please click the button to predict（请点击进行预测）'):
         # 记录未完成的问题的索引
         unfinished_questions = [index for index, row in input_df.iterrows() if row.isnull().any()]
         
-        # 显示未完成的问题
+        # 自动跳转到第一个未完成的问题
         if unfinished_questions:
-            st.write("Click the button below to jump to the unfinished questions")
-            if st.button("Jump to unfinished questions"):
-                # 获取未完成问题的索引
-                unfinished_index = unfinished_questions[0]
-                
-                # 使用JavaScript代码滚动到未完成问题的位置
-                js_code = """
-                <script>
-                    var questionElement = document.getElementById('question-{}');
-                    questionElement.scrollIntoView({{behavior: 'smooth'}});
-                </script>
-                """.format(unfinished_index)
-                
-                # 在Streamlit中执行JavaScript代码
-                st.components.v1.html(js_code, height=0)
+            first_unfinished_index = unfinished_questions[0]
+            
+            # 获取问题所在的位置
+            question_element_id = f"question_{first_unfinished_index}"
+            
+            # 使用 JavaScript 代码获取问题元素的垂直位置
+            js_code = f"""
+            <script>
+                var questionElement = document.getElementById('{question_element_id}');
+                var questionPosition = questionElement.offsetTop;
+                window.parent.postMessage({{scrollTo: questionPosition}}, "*");
+            </script>
+            """
+            
+            # 在 Streamlit 中执行 JavaScript 代码
+            st.components.v1.html(js_code, height=0)
     else:
         # 在这里执行预测相关的代码
         input_df1 = codeing_fun(input_df=input_df)
@@ -208,5 +210,6 @@ if st.button('Please click the button to predict（请点击进行预测）'):
 
 # 为每个问题添加唯一的标识符
 for index, row in input_df.iterrows():
-    st.write('<div id="question-{}">{}</div>'.format(index, row.name), unsafe_allow_html=True)
+    question_element_id = f"question_{index}"
+    st.write(f'<div id="{question_element_id}">{row.name}</div>', unsafe_allow_html=True)
 
