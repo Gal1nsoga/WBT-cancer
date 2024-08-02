@@ -155,7 +155,7 @@ if st.button('Please click the button to predict（请点击进行预测）'):
         
         # 找出未完成的字段并进行跳转
         for col in input_df.columns:
-            if pd.isnull(input_df[col]).any():
+            if pd.isnull(input_dict[col]):
                 # 使用 session_state 保存要滚动到的字段名字
                 st.session_state['scroll_to'] = col
                 break  # 找到第一个未完成的问题后退出
@@ -180,7 +180,7 @@ if 'scroll_to' in st.session_state:
     # 使用 html 和 js 实现自动跳转
     st.markdown(f"""
         <script>
-        const element = document.querySelector('[label="{col_to_scroll}"]');
+        const element = document.querySelector('[data-key="{col_to_scroll}"]');
         if (element) {{
             element.scrollIntoView({{behavior: 'smooth'}});
         }}
