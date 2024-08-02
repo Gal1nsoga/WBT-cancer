@@ -189,3 +189,17 @@ if st.button('Please click the button to predict（请点击进行预测）'):
             st.write("You may belong to a low-risk group.\n您可能属于低危人群")
             # st.write(f"概率：{1 - probability}")
 
+# 显示未完成的问题
+if unfinished_questions:
+    st.write("Click the button below to jump to the unfinished questions")
+    if st.button("Jump to unfinished questions"):
+        # 在这里添加JavaScript代码以滚动到未完成问题所在的位置
+        st.markdown(
+            """<script>
+                var elements = document.querySelectorAll('.dataframe');
+                var unfinishedIndex = elements[{unfinished_index}].getBoundingClientRect().top;
+                window.scrollTo({{top: unfinishedIndex, behavior: 'smooth'}});
+            </script>""".format(unfinished_index=unfinished_questions[0])
+        )
+
+
