@@ -182,8 +182,7 @@ if st.button('Please click the button to predict（请点击进行预测）'):
             st.write("You may belong to a low-risk group.\n您可能属于低危人群")
             # st.write(f"概率：{1 - probability}")
 
-        # 自动跳转到结果部分（可选）
-        st.balloons()  # 或其他有趣的动画表演，增加用户体验
+        
 
 
 
