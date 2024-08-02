@@ -144,23 +144,6 @@ def make_predict(input_df):
     return predict_result, predict_probability
 
 
-# 假设这些因子是用户在表单中填写的内容
-factor1 = st.text_input("Factor 1")
-factor2 = st.text_input("Factor 2")
-# 继续为所有因子添加输入框...
-
-# 构建数据字典
-input_dict = {
-    'bc001': factor1,
-    'bd001': factor2,
-    # 继续为所有因子添加键值...
-    'Self-rated health': st.selectbox("Self-rated health", options=["Good", "Average", "Poor"]),
-    'Smoke status': st.selectbox("Smoke status", options=["Yes", "No"])
-}
-
-# 创建 DataFrame
-input_df = pd.DataFrame([input_dict])
-
 # 设置一个按钮用于预测
 if st.button('Please click the button to predict（请点击进行预测）'):
     # 检查是否完成了所有选项
