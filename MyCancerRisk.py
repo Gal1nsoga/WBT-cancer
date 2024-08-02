@@ -64,7 +64,7 @@ factor25 = st.radio("How's your hearing? (您的听力如何？)", ['Very Good (
 factor26 = st.radio('Have all your teeth fallen out? （您是否牙齿已经掉光？）', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)'], index = None)
 factor27 = st.radio('Do you often experience body pain? （您是否经常身体疼痛？）', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)'], index = None)
 factor28 = st.radio('Have you experienced a weight change of more than 5 kg within the past year?您是否一年内体重变化超过10斤？', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)'], index = None)
-factor29 = st.radio('How was your nutrition during childhood? （您小时候的营养情况如何？）', ['Very Good (非常好)', 'Good (很好)', 'Fair (好)', 'Average (一般)', 'Poor (不好)', 'Not Sure (不清楚)''], index = None)
+factor29 = st.radio('How was your nutrition during childhood? （您小时候的营养情况如何？）', ['Very Good (非常好)', 'Good (很好)', 'Fair (好)', 'Average (一般)', 'Poor (不好)', 'Not Sure (不清楚)'], index = None)
 factor30 = st.radio("How's your life quality? (您的生活水平如何？)", ['Very Good (非常好)', 'Good (很好)', 'Fair (好)', 'Average (一般)', 'Poor (不好)', 'Not Sure (不清楚)'], index = None)
 factor31 = st.radio("What's yuor work? (您的工作单位是？)", ['Government departments or public institutions (政府部门或事业单位)', 'Non-profit organizations and businesses (非盈利结构和企业)', 'Individual households, farmers, residential households (个体户农户居民户)', 'Others (其他)', 'Unclear (不清楚)'], index = None)
 factor32 = st.radio('What type of the bathing facilities at your house? (您家里的洗澡设施是什么样的？)', ['Centralized hot water supply (统一供热水)', 'Household-installed water heater (家庭自装热水器)', 'No bathing facilities (没有洗澡设施)', 'Unclear (不清楚)'], index = None)
