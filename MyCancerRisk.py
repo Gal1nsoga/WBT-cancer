@@ -36,7 +36,7 @@ st.sidebar.info(
 
 # 填写预测变量
 # 社会人口学
-factor1 = st.radio('Residence Type (户口类型)', ['Agricultural Type(农业户口)', 'None-Agricultural Type (非农户口)', 'Unified Residence Type (统一居民户口)', 'Unclear (不清楚)', index = None])
+factor1 = st.radio('Residence Type (户口类型)', ['Agricultural Type(农业户口)', 'None-Agricultural Type (非农户口)', 'Unified Residence Type (统一居民户口)', 'Unclear (不清楚)'], index = None)
 factor2 = st.radio('Education Level (教育水平)', ['Elementary school or below (小学及以下)', 'Junior high school graduate (初中毕业)', 'High school or vocational school graduate (高中或中专毕业)', 'College diploma graduate (大专毕业)', 'Bachelors degree or above (本科及以上)', 'Unclear (不清楚)'], index = None)
 factor3 = st.radio('Marital Status( 婚姻状态)', ['Married (已婚)', 'Single (未婚)', 'Divorced or widowed (离异或丧偶)', 'Unclear (不清楚)'], index = None)
 factor4 = st.radio('Gender (性别)', ['Male (男性)', 'Female (女性)'], index = None)
