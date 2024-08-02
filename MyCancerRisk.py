@@ -144,26 +144,58 @@ def make_predict(input_df):
     return predict_result, predict_probability
 
 
+# 假设这些因子是用户在表单中填写的内容
+factor1 = st.text_input("Factor 1")
+factor2 = st.text_input("Factor 2")
+# 继续为所有因子添加输入框...
+
+# 构建数据字典
+input_dict = {
+    'bc001': factor1,
+    'bd001': factor2,
+    # 继续为所有因子添加键值...
+    'Self-rated health': st.selectbox("Self-rated health", options=["Good", "Average", "Poor"]),
+    'Smoke status': st.selectbox("Smoke status", options=["Yes", "No"])
+}
+
+# 创建 DataFrame
+input_df = pd.DataFrame([input_dict])
+
 # 设置一个按钮用于预测
 if st.button('Please click the button to predict（请点击进行预测）'):
     # 检查是否完成了所有选项
     if input_df.isnull().values.any():
-        st.warning("You have unfinished questions, please make sure you have completed all of them！\n您有问题未完成，请确保完成了所有选项！")
-    else:
-        # 在这里执行预测相关的代码
+        st.warning(
+            "You have unfinished questions, please make sure you have completed all of them！\n"
+            "您有问题未完成，请确保完成了所有选项！"
+        )
+        # 找出未完成的字段并创建链接
+        for col in input_df.columns:
+            if pd.isnull(input_df[col]).any():
+                st.write(f"Please complete your answer for: **{col}**.")
+                # 可以在这里使用 st.session_state 来跳转
+                st.session_state['scroll_to'] = col  # 记录要滚动到的位置
+                break  # 只需找到第一个未完成的问题
 
+    else:
+        # 执行预测相关的代码
         input_df1 = codeing_fun(input_df=input_df)
         result, probability = make_predict(input_df=input_df1)
 
         # 显示结果
         st.header('Your cancer risk level:\n您的癌症风险等级：')
-
         if int(result) == 1:
             st.write("You may belong to a high-risk group.\n您可能属于高危人群")
-            # st.write(f"概率：{probability}")
+            st.write(f"概率：{probability}")
         else:
             st.write("You may belong to a low-risk group.\n您可能属于低危人群")
-            # st.write(f"概率：{1 - probability}")
+            st.write(f"概率：{1 - probability}")
+
+# 自动滚动到未完成问题的位置
+if 'scroll_to' in st.session_state:
+    col_to_scroll = st.session_state['scroll_to']
+    st.markdown(f"<script>document.querySelector('[label={col_to_scroll}]').scrollIntoView();</script>", unsafe_allow_html=True)
+    del st.session_state['scroll_to']  # 清除滚动状态
 
 
 
