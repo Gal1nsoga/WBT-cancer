@@ -50,7 +50,7 @@ factor11 = st.radio('Do you have dyslipidemia? (您是否有血脂异常？)', [
 factor12 = st.radio('Do you have diabetes? (您是否有糖尿病？)', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)'], index = None)
 factor13 = st.radio('Do you have chronic lung disease? (您是否有慢性肺部疾病？)', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)'], index = None)
 factor14 = st.radio('Do you have liver disease? (您是否有肝脏疾病？)', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)'], index = None)
-factor15 = st.radio('Do you have heart attack? (您是否有心脏病？)', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)''], index = None)
+factor15 = st.radio('Do you have heart attack? (您是否有心脏病？)', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)'], index = None)
 factor16 = st.radio('Do you have stroke? (您是否有中风？)', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)'], index = None)
 factor17 = st.radio('Do you have kidney disease? (您是否有肾脏疾病？)', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)'], index = None)
 factor18 = st.radio('Do you have gastric or digestive disease? (您是否有胃部或消化系统疾病？)', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)'], index = None)
