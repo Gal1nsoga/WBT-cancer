@@ -60,18 +60,18 @@ factor21 = st.radio('Do you have arthritis or rheumatism? (您是否有关节炎
 factor22 = st.radio('Do you have asthma? (您是否有哮喘？)', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)'], index = None)
 factor23 = st.radio('Have you experienced a traffic accident or a major injury accident? (您是否有经历过交通事故或重大意外伤害？)', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)'], index = None)
 factor24 = st.radio('Have you been diagnosed with glaucoma? （您是否有确诊青光眼？）', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)'], index = None)
-factor25 = st.radio('How's your hearing? (您的听力如何？)', ['Very Good (非常好)', 'Good (很好)', 'Fair (好)', 'Average (一般)', 'Poor (不好)', 'Not Sure (不清楚)'], index = None)
+factor25 = st.radio("How's your hearing? (您的听力如何？)", ['Very Good (非常好)', 'Good (很好)', 'Fair (好)', 'Average (一般)', 'Poor (不好)', 'Not Sure (不清楚)'], index = None)
 factor26 = st.radio('Have all your teeth fallen out? （您是否牙齿已经掉光？）', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)'], index = None)
 factor27 = st.radio('Do you often experience body pain? （您是否经常身体疼痛？）', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)], index = None)
 factor28 = st.radio('Have you experienced a weight change of more than 5 kg within the past year?您是否一年内体重变化超过10斤？', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)'], index = None)
 factor29 = st.radio('How was your nutrition during childhood? （您小时候的营养情况如何？）', ['Very Good (非常好)', 'Good (很好)', 'Fair (好)', 'Average (一般)', 'Poor (不好)', 'Not Sure (不清楚)''], index = None)
-factor30 = st.radio('How's your life quality? (您的生活水平如何？)', ['Very Good (非常好)', 'Good (很好)', 'Fair (好)', 'Average (一般)', 'Poor (不好)', 'Not Sure (不清楚)'], index = None)
-factor31 = st.radio('What's yuor work? (您的工作单位是？)', ['Government departments or public institutions (政府部门或事业单位)', 'Non-profit organizations and businesses (非盈利结构和企业)', 'Individual households, farmers, residential households (个体户农户居民户)', 'Others (其他)', 'Unclear (不清楚)'], index = None)
+factor30 = st.radio("How's your life quality? (您的生活水平如何？)", ['Very Good (非常好)', 'Good (很好)', 'Fair (好)', 'Average (一般)', 'Poor (不好)', 'Not Sure (不清楚)'], index = None)
+factor31 = st.radio("What's yuor work? (您的工作单位是？)", ['Government departments or public institutions (政府部门或事业单位)', 'Non-profit organizations and businesses (非盈利结构和企业)', 'Individual households, farmers, residential households (个体户农户居民户)', 'Others (其他)', 'Unclear (不清楚)'], index = None)
 factor32 = st.radio('What type of the bathing facilities at your house? (您家里的洗澡设施是什么样的？)', ['Centralized hot water supply (统一供热水)', 'Household-installed water heater (家庭自装热水器)', 'No bathing facilities (没有洗澡设施)', 'Unclear (不清楚)'], index = None)
 factor33 = st.radio('What type of the heating system facilities at your home? (您家里的供暖设施是什么样的？)', ['Solar energy (太阳能)', 'Coal or briquettes (煤炭或者蜂窝煤)', 'Piped natural gas (管道天然气或煤气)', 'Liquefied petroleum gas (LPG) (液化石油气)', 'Electricity (电)', 'Burning straw, firewood (烧秸秆、柴火)', 'Others (其他)', 'Not Sure (不清楚)'], index = None)
 factor34 = st.radio('How clean is the interior of your home? (您家里的室内整洁度如何？)', ['Very clean (非常整洁)', 'Quite clean (很整洁)', 'Clean (整洁)', 'Average (一般)', 'Unclean (不整洁)', 'Unclear (不清楚)'], index = None)
 factor35 = st.radio('How would you rate your own health? （您对自己的健康评价如何？）', ['Very Good (非常好)', 'Good (很好)', 'Fair (好)', 'Average (一般)', 'Poor (不好)', 'Not Sure (不清楚)'], index = None)
-factor36 = st.radio('How's your smoking status? (您的吸烟状态是如何的？)', ['Currently smoking (目前吸烟)', 'Quit smoking (已经戒烟)', 'Never smoke (从不吸烟)', 'Not Sure (不清楚)'], index = None)
+factor36 = st.radio("How's your smoking status? (您的吸烟状态是如何的？)", ['Currently smoking (目前吸烟)', 'Quit smoking (已经戒烟)', 'Never smoke (从不吸烟)', 'Not Sure (不清楚)'], index = None)
 
 # 创建dataframe，用于预测
 input_dict = {'bc001': factor1, 'bd001': factor2, 'be001': factor3, 'rgender': factor4,
