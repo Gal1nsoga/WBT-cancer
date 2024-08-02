@@ -169,15 +169,24 @@ if st.button('Please click the button to predict（请点击进行预测）'):
     # 检查是否完成了所有选项
     if input_df.isnull().values.any():
         st.warning("You have unfinished questions, please make sure you have completed all of them！\n您有问题未完成，请确保完成了所有选项！")
-        
+
         # 获取未完成的问题列名
         unfinished_questions = list(input_df.columns[input_df.isnull().any()])
-
-        # 创建一个空元素用于跳转
-        placeholder = st.empty()
+        
+        # 创建一个锚点，用于跳转到未完成的问题
+        st.markdown(f'<div id="{unfinished_questions[0]}"></div>', unsafe_allow_html=True)
 
         # 输出自动跳转的链接
-        placeholder.markdown(f'<a href="#{unfinished_questions[0]}">Click here to jump to the unfinished question</a>', unsafe_allow_html=True)
+        st.markdown(f'<a href="#{unfinished_questions[0]}" id="jump_link">Click here to jump to the unfinished question</a>', unsafe_allow_html=True)
+
+        # 添加JavaScript代码
+        st.markdown(
+            """
+            <script>
+            document.getElementById("jump_link").click();
+            </script>
+            """
+        )
     else:
         # 在这里执行预测相关的代码
         input_df1 = codeing_fun(input_df=input_df)
@@ -189,6 +198,10 @@ if st.button('Please click the button to predict（请点击进行预测）'):
             st.write("You may belong to a high-risk group.\n您可能属于高危人群")
         else:
             st.write("You may belong to a low-risk group.\n您可能属于低危人群")
+
+# 显示问题
+for col in input_df.columns:
+    input_df[col] = st.text_input(col, value=input_df[col][0])
 
 
 
