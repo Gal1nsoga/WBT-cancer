@@ -165,32 +165,6 @@ def make_predict(input_df):
 #             st.write("You may belong to a low-risk group.\n您可能属于低危人群")
 #             # st.write(f"概率：{1 - probability}")
 
-# 检查是否完成了所有选项
-if st.button('Please click the button to predict（请点击进行预测）'):
-    if input_df.isnull().values.any():
-        st.warning("You have unfinished questions, please make sure you have completed all of them！\n您有问题未完成，请确保完成了所有选项！")
-        
-        # 跳转到未完成的问题处
-        st.session_state.jump_to_question = True  # 设置跳转标识
-        st.experimental_rerun()  # 重新加载页面
-    else:
-        # 在这里执行预测相关的代码
-        input_df1 = codeing_fun(input_df=input_df)
-        result, probability = make_predict(input_df=input_df1)
-        # 显示结果
-        st.header('Your cancer risk level:\n您的癌症风险等级：')
-        if int(result) == 1:
-            st.write("You may belong to a high-risk group.\n您可能属于高危人群")
-            # st.write(f"概率：{probability}")
-        else:
-            st.write("You may belong to a low-risk group.\n您可能属于低危人群")
-            # st.write(f"概率：{1 - probability}")
 
-# 如果需要跳转到未完成的输入部分，可以在这里添加逻辑
-if 'jump_to_question' in st.session_state and st.session_state.jump_to_question:
-    st.session_state.jump_to_question = False  # 重置跳转标识
-    # 在这里显示未完成的问题或输入组件
-    st.text_input("Please complete this question:")  # 示例输入框
-    # 在实际应用中，根据 `input_df` 的具体问题来渲染未完成的问题
 
 
