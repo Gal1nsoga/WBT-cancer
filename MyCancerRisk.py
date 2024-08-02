@@ -162,73 +162,30 @@ def make_predict(input_df):
 #             st.write("You may belong to a low-risk group.\n您可能属于低危人群")
 #             # st.write(f"概率：{1 - probability}")
 
-# 编写一个函数，根据DataFrame中的空值返回未完成的问题索引
-def get_unfinished_question_index(df):
-    return df.index[df.isnull().any(axis=1)].tolist()
-
-# 在Streamlit应用程序中使用st.write()嵌入HTML块
-st.write("""
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>自动跳转到未完成的问题</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-    .question {
-        background-color: #f9f9f9;
-        padding: 10px;
-        margin-bottom: 10px;
-    }
-</style>
-</head>
-<body>
-""")
-
-# 在Streamlit应用程序中设置一个按钮用于预测
+# 设置一个按钮用于进行预测
 if st.button('Please click the button to predict（请点击进行预测）'):
     # 检查是否完成了所有选项
-    unfinished_questions = get_unfinished_question_index(input_df)
-    
-    if len(unfinished_questions) > 0:
+    if input_df.isnull().values.any():
         st.warning("You have unfinished questions, please make sure you have completed all of them！\n您有问题未完成，请确保完成了所有选项！")
-        # 自动滚动到未完成问题
-        for question_index in unfinished_questions:
-            st.write(f"<div class='question' id='question{question_index}'>未完成的问题：{input_df.loc[question_index, 'Question']}</div>", unsafe_allow_html=True)
     else:
         # 在这里执行预测相关的代码
         input_df1 = codeing_fun(input_df=input_df)
         result, probability = make_predict(input_df=input_df1)
+        
         # 显示结果
         st.header('Your cancer risk level:\n您的癌症风险等级：')
         if int(result) == 1:
             st.write("You may belong to a high-risk group.\n您可能属于高危人群")
+            # 这里可以选择是否显示概率
             # st.write(f"概率：{probability}")
         else:
             st.write("You may belong to a low-risk group.\n您可能属于低危人群")
             # st.write(f"概率：{1 - probability}")
 
-st.write("""
-<script>
-    // 检查哪些问题尚未完成
-    const questions = document.querySelectorAll('.question');
+        # 自动跳转到结果部分（可选）
+        st.balloons()  # 或其他有趣的动画表演，增加用户体验
 
-    questions.forEach((question) => {
-        // 如果问题未完成，将页面滚动到这个问题的位置
-        if (!question.textContent.includes('已完成')) {
-            question.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            return;
-        }
-    });
-</script>
-</body>
-</html>
-""")
+
 
 
 
