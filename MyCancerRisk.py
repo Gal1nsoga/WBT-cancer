@@ -178,16 +178,14 @@ if st.button('Please click the button to predict（请点击进行预测）'):
         if unfinished_questions:
             st.write("Click the button below to jump to the unfinished questions")
             if st.button("Jump to unfinished questions"):
-                # 获取未完成问题所在的位置
+                # 获取未完成问题的索引
                 unfinished_index = unfinished_questions[0]
                 
                 # 使用JavaScript代码滚动到未完成问题的位置
                 js_code = """
                 <script>
-                    var elements = document.querySelectorAll('.stDataFrame');
-                    var unfinishedElement = elements[{}];
-                    var unfinishedPosition = unfinishedElement.getBoundingClientRect().top + window.pageYOffset;
-                    window.scrollTo({{top: unfinishedPosition, behavior: 'smooth'}});
+                    var questionElement = document.getElementById('question-{}');
+                    questionElement.scrollIntoView({{behavior: 'smooth'}});
                 </script>
                 """.format(unfinished_index)
                 
@@ -207,4 +205,8 @@ if st.button('Please click the button to predict（请点击进行预测）'):
         else:
             st.write("You may belong to a low-risk group.\n您可能属于低危人群")
             # st.write(f"概率：{1 - probability}")
+
+# 为每个问题添加唯一的标识符
+for index, row in input_df.iterrows():
+    st.write('<div id="question-{}">{}</div>'.format(index, row.name), unsafe_allow_html=True)
 
