@@ -152,14 +152,14 @@ if st.button('Please click the button to predict（请点击进行预测）'):
             "You have unfinished questions, please make sure you have completed all of them！\n"
             "您有问题未完成，请确保完成了所有选项！"
         )
-        # 找出未完成的字段并创建链接
+        
+        # 找出未完成的字段并进行跳转
         for col in input_df.columns:
             if pd.isnull(input_df[col]).any():
-                st.write(f"Please complete your answer for: **{col}**.")
-                # 可以在这里使用 st.session_state 来跳转
-                st.session_state['scroll_to'] = col  # 记录要滚动到的位置
-                break  # 只需找到第一个未完成的问题
-
+                # 使用 session_state 保存要滚动到的字段名字
+                st.session_state['scroll_to'] = col
+                break  # 找到第一个未完成的问题后退出
+            
     else:
         # 执行预测相关的代码
         input_df1 = codeing_fun(input_df=input_df)
@@ -177,7 +177,15 @@ if st.button('Please click the button to predict（请点击进行预测）'):
 # 自动滚动到未完成问题的位置
 if 'scroll_to' in st.session_state:
     col_to_scroll = st.session_state['scroll_to']
-    st.markdown(f"<script>document.querySelector('[label={col_to_scroll}]').scrollIntoView();</script>", unsafe_allow_html=True)
+    # 使用 html 和 js 实现自动跳转
+    st.markdown(f"""
+        <script>
+        const element = document.querySelector('[label="{col_to_scroll}"]');
+        if (element) {{
+            element.scrollIntoView({{behavior: 'smooth'}});
+        }}
+        </script>
+    """, unsafe_allow_html=True)
     del st.session_state['scroll_to']  # 清除滚动状态
 
 
