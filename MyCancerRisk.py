@@ -68,14 +68,14 @@ factor25 = st.radio('How's your hearing? (您的听力如何？)', ['非常好',
 factor26 = st.radio('Have all your teeth fallen out? （您是否牙齿已经掉光？）', ['是', '否', '不清楚'], index = None)
 factor27 = st.radio('Do you often experience body pain? （您是否经常身体疼痛？）', ['是', '否', '不清楚'], index = None)
 factor28 = st.radio('Have you experienced a weight change of more than 5 kg within the past year?您是否一年内体重变化超过10斤？', ['是', '否', '不清楚'], index = None)
-factor29 = st.radio('您小时候的营养情况如何？', ['非常好', '很好', '好', '一般', '不好', '不清楚'], index = None)
-factor30 = st.radio('您的生活水平如何？', ['非常好', '相对好', '一般', '相对差', '很差', '不清楚'], index = None)
-factor31 = st.radio('您的工作单位是？', ['政府部门或事业单位', '非盈利结构和企业', '个体户农户居民户', '其他', '不清楚'], index = None)
-factor32 = st.radio('您家里的洗澡设施是什么样的？', ['统一供热水', '家庭自装热水器', '没有洗澡设施', '不清楚'], index = None)
-factor33 = st.radio('您家里的供暖设施是什么样的？', ['太阳能', '煤炭或者蜂窝煤', '管道天然气或煤气', '液化石油气', '电', '烧秸秆、柴火', '其他', '不清楚'], index = None)
-factor34 = st.radio('您家里的室内整洁度如何？', ['非常整洁', '很整洁', '整洁', '一般', '不整洁', '不清楚'], index = None)
-factor35 = st.radio('您对自己的健康评价如何？', ['极好', '很好', '好', '一般', '不好', '不清楚'], index = None)
-factor36 = st.radio('您的吸烟状态是如何的？', ['目前吸烟', '已经戒烟', '从不吸烟', '不清楚'], index = None)
+factor29 = st.radio('How was your nutrition during childhood? （您小时候的营养情况如何？）', ['非常好', '很好', '好', '一般', '不好', '不清楚'], index = None)
+factor30 = st.radio('How's your life quality? (您的生活水平如何？)', ['非常好', '相对好', '一般', '相对差', '很差', '不清楚'], index = None)
+factor31 = st.radio('What's yuor work? (您的工作单位是？)', ['政府部门或事业单位', '非盈利结构和企业', '个体户农户居民户', '其他', '不清楚'], index = None)
+factor32 = st.radio('What type of the bathing facilities at your house? (您家里的洗澡设施是什么样的？)', ['统一供热水', '家庭自装热水器', '没有洗澡设施', '不清楚'], index = None)
+factor33 = st.radio('What type of the heating system facilities at your home? (您家里的供暖设施是什么样的？)', ['太阳能', '煤炭或者蜂窝煤', '管道天然气或煤气', '液化石油气', '电', '烧秸秆、柴火', '其他', '不清楚'], index = None)
+factor34 = st.radio('How clean is the interior of your home? (您家里的室内整洁度如何？)', ['非常整洁', '很整洁', '整洁', '一般', '不整洁', '不清楚'], index = None)
+factor35 = st.radio('How would you rate your own health? （您对自己的健康评价如何？）', ['极好', '很好', '好', '一般', '不好', '不清楚'], index = None)
+factor36 = st.radio('How's your smoking status? (您的吸烟状态是如何的？)', ['目前吸烟', '已经戒烟', '从不吸烟', '不清楚'], index = None)
 
 # 创建dataframe，用于预测
 input_dict = {'bc001': factor1, 'bd001': factor2, 'be001': factor3, 'rgender': factor4,
