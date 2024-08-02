@@ -62,7 +62,7 @@ factor23 = st.radio('Have you experienced a traffic accident or a major injury a
 factor24 = st.radio('Have you been diagnosed with glaucoma? （您是否有确诊青光眼？）', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)'], index = None)
 factor25 = st.radio("How's your hearing? (您的听力如何？)", ['Very Good (非常好)', 'Good (很好)', 'Fair (好)', 'Average (一般)', 'Poor (不好)', 'Not Sure (不清楚)'], index = None)
 factor26 = st.radio('Have all your teeth fallen out? （您是否牙齿已经掉光？）', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)'], index = None)
-factor27 = st.radio('Do you often experience body pain? （您是否经常身体疼痛？）', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)], index = None)
+factor27 = st.radio('Do you often experience body pain? （您是否经常身体疼痛？）', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)'], index = None)
 factor28 = st.radio('Have you experienced a weight change of more than 5 kg within the past year?您是否一年内体重变化超过10斤？', ['Yes (是)', 'No(否)', 'Not Sure(不清楚)'], index = None)
 factor29 = st.radio('How was your nutrition during childhood? （您小时候的营养情况如何？）', ['Very Good (非常好)', 'Good (很好)', 'Fair (好)', 'Average (一般)', 'Poor (不好)', 'Not Sure (不清楚)''], index = None)
 factor30 = st.radio("How's your life quality? (您的生活水平如何？)", ['Very Good (非常好)', 'Good (很好)', 'Fair (好)', 'Average (一般)', 'Poor (不好)', 'Not Sure (不清楚)'], index = None)
