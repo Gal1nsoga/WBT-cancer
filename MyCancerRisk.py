@@ -165,7 +165,6 @@ def make_predict(input_df):
 #             st.write("You may belong to a low-risk group.\n您可能属于低危人群")
 #             # st.write(f"概率：{1 - probability}")
 # 存储未完成的问题的索引
-unfinished_questions = []
 
 if st.button('Please click the button to predict（请点击进行预测）'):
     # 检查是否完成了所有选项
@@ -174,6 +173,26 @@ if st.button('Please click the button to predict（请点击进行预测）'):
         
         # 记录未完成的问题的索引
         unfinished_questions = [index for index, row in input_df.iterrows() if row.isnull().any()]
+        
+        # 显示未完成的问题
+        if unfinished_questions:
+            st.write("Click the button below to jump to the unfinished questions")
+            if st.button("Jump to unfinished questions"):
+                # 获取未完成问题所在的位置
+                unfinished_index = unfinished_questions[0]
+                
+                # 使用JavaScript代码滚动到未完成问题的位置
+                js_code = """
+                <script>
+                    var elements = document.querySelectorAll('.stDataFrame');
+                    var unfinishedElement = elements[{}];
+                    var unfinishedPosition = unfinishedElement.getBoundingClientRect().top + window.pageYOffset;
+                    window.scrollTo({{top: unfinishedPosition, behavior: 'smooth'}});
+                </script>
+                """.format(unfinished_index)
+                
+                # 在Streamlit中执行JavaScript代码
+                st.components.v1.html(js_code, height=0)
     else:
         # 在这里执行预测相关的代码
         input_df1 = codeing_fun(input_df=input_df)
@@ -188,18 +207,4 @@ if st.button('Please click the button to predict（请点击进行预测）'):
         else:
             st.write("You may belong to a low-risk group.\n您可能属于低危人群")
             # st.write(f"概率：{1 - probability}")
-
-# 显示未完成的问题
-if unfinished_questions:
-    st.write("Click the button below to jump to the unfinished questions")
-    if st.button("Jump to unfinished questions"):
-        # 在这里添加JavaScript代码以滚动到未完成问题所在的位置
-        st.markdown(
-            """<script>
-                var elements = document.querySelectorAll('.dataframe');
-                var unfinishedIndex = elements[{unfinished_index}].getBoundingClientRect().top;
-                window.scrollTo({{top: unfinishedIndex, behavior: 'smooth'}});
-            </script>""".format(unfinished_index=unfinished_questions[0])
-        )
-
 
