@@ -24,8 +24,7 @@ st.subheader('Welcome to use this tool! Please enter the following information t
 
 # 在侧边栏添加说明
 st.sidebar.info(
-    "You can use this tool to predict the likelihood of cancer now. Please note that this forecast is for reference only and the actual results are subject to the doctor's examination results.
-    About MyCancerRisk.\nThis machine learning program was developed using the Charls database. After using this program, you will understand your current risk level of having cancer. This program helps in the early detection and treatment of cancer, thereby reducing the public health burden associated with cancer.")
+    "You can use this tool to predict the likelihood of cancer now. Please note that this forecast is for reference only and the actual results are subject to the doctor's examination results.About MyCancerRisk.\nThis machine learning program was developed using the Charls database. After using this program, you will understand your current risk level of having cancer. This program helps in the early detection and treatment of cancer, thereby reducing the public health burden associated with cancer.")
 
 # Function for online predictions
 # 在侧边栏输入预测因子
